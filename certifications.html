@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications | Md Sharik Ansari</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .certification-card {
+      background: var(--border-gradient-onyx);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-2);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition-1);
+    }
+
+    .certification-card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-4);
+    }
+
+    .certification-image {
+      width: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-3);
+    }
+
+    .certification-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: var(--transition-1);
+    }
+
+    .certification-card:hover .certification-image img {
+      transform: scale(1.02);
+    }
+
+    .certification-info {
+      text-align: center;
+    }
+
+    .certification-title {
+      color: var(--white-2);
+      font-size: var(--fs-3);
+      font-weight: var(--fw-600);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .certification-issuer {
+      display: inline-block;
+      background: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .certification-date {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      margin-bottom: 15px;
+    }
+
+    .certification-verify {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--border-gradient-onyx);
+      color: var(--white-2);
+      border-radius: 10px;
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+      transition: var(--transition-1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .certification-verify::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      transition: var(--transition-1);
+      z-index: -1;
+    }
+
+    .certification-verify:hover {
+      color: var(--orange-yellow-crayola);
+      transform: translateY(-2px);
+    }
+
+    .loading, .not-found {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--light-gray);
+      font-size: var(--fs-5);
+    }
+
+    /* Mobile: 1 per row (default) */
+
+    /* Tablet and above: 2 per row */
+    @media (min-width: 768px) {
+      .certifications-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .certification-image img {
+        height: 250px;
+      }
+    }
+
+    /* Larger screens: 2 per row with better spacing */
+    @media (min-width: 1024px) {
+      .certifications-grid {
+        gap: 30px;
+      }
+      
+      .certification-card {
+        padding: 30px;
+      }
+    }
+</style>
+</head>
+<body>
+
+  <main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/profile.png" alt="Md Sharik Ansari" width="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Md Sharik Ansari">Md Sharik Ansari</h1>
+          <p class="title">Java Backend Developer</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:mdsharik828@gmail.com" class="contact-link">mdsharik828@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+919382339799" class="contact-link">+91 9382339799</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2006-07-25">25 July, 2006</time>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Asansol, India</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://linkedin.com/in/mdsharikansari" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/mdsharikansari" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://x.com/mdsharikansari_" class="social-link" target="_blank">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.instagram.com/mdsharikansari_/" class="social-link" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+     <!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="navbar-list">
+    <li class="navbar-item">
+      <a href="index.html" class="navbar-link" data-nav-link="about">About</a>
+    </li>
+    <li class="navbar-item">
+      <a href="index.html" class="navbar-link" data-nav-link="resume">Resume</a>
+    </li>
+    <li class="navbar-item">
+      <a href="index.html" class="navbar-link" data-nav-link="portfolio">Portfolio</a>
+    </li>
+    <li class="navbar-item">
+      <button class="navbar-link active">Certifications</button>
+    </li>
+  </ul>
+</nav>
+
+      <!-- CERTIFICATIONS -->
+      <article class="certifications active" data-page="certifications">
+        <header>
+          <h2 class="h2 article-title">Certifications</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Certifications and professional courses demonstrating expertise in Java development, data structures, and applied AI technologies
+          </p>
+        </section>
+
+        <section class="certifications-content">
+          <div id="certifications-loading" class="loading">
+            <p>Loading certifications...</p>
+          </div>
+          
+          <div id="certifications-not-found" class="not-found" style="display: none;">
+            <div class="content-card">
+              <h3 class="h3">No Certifications Found</h3>
+              <p>Certifications data is not available at the moment.</p>
+            </div>
+          </div>
+
+          <div id="certifications-container" class="certifications-container" style="display: none;">
+            <div class="certifications-grid" id="certifications-grid">
+              <!-- Certifications will be dynamically inserted here -->
+            </div>
+          </div>
+        </section>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- Certifications JS -->
+  <script src="./assets/js/certifications.js"></script>
+
+  <!-- Custom JS -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Ionicon -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Set certifications as active on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set certifications nav link as active
+      const navLinks = document.querySelectorAll('.navbar-link');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent === 'Certifications') {
+          link.classList.add('active');
+        }
+      });
+
+      // Sidebar functionality
+      const sidebar = document.querySelector("[data-sidebar]");
+      const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+      if (sidebar && sidebarBtn) {
+        sidebarBtn.addEventListener("click", function() {
+          sidebar.classList.toggle("active");
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

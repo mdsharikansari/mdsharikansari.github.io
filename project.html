@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Md Sharik Ansari</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Project Details Styles */
+    .back-nav {
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--orange-yellow-crayola);
+      font-size: var(--fs-6);
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: var(--border-gradient-onyx);
+      transition: var(--transition-1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      transition: var(--transition-1);
+      z-index: -1;
+    }
+
+    .back-btn:hover {
+      color: var(--white-1);
+      transform: translateY(-2px);
+    }
+
+    .project-content {
+      padding: 20px 0;
+    }
+
+    .loading, .not-found {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--light-gray);
+      font-size: var(--fs-5);
+    }
+
+    .project-container {
+      animation: fade 0.5s ease;
+    }
+
+    .project-header {
+      background: var(--border-gradient-onyx);
+      padding: 30px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      box-shadow: var(--shadow-2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-header::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .project-image {
+      width: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow-3);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: var(--transition-1);
+    }
+
+    .project-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .project-title {
+      color: var(--white-2);
+      font-size: var(--fs-1);
+      font-weight: var(--fw-600);
+      margin-bottom: 5px;
+    }
+
+    .project-category {
+      display: inline-block;
+      background: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+    }
+
+    .project-short {
+      color: var(--light-gray);
+      font-size: var(--fs-5);
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .project-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--border-gradient-onyx);
+      color: var(--white-2);
+      border-radius: 10px;
+      font-size: var(--fs-6);
+      font-weight: var(--fw-500);
+      transition: var(--transition-1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-link::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      transition: var(--transition-1);
+      z-index: -1;
+    }
+
+    .project-link:hover {
+      color: var(--orange-yellow-crayola);
+      transform: translateY(-2px);
+    }
+
+    .repo-link:hover::before {
+      background: var(--bg-gradient-yellow-1);
+    }
+
+    .project-details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .project-description,
+    .project-features,
+    .project-stack {
+      background: var(--border-gradient-onyx);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-description::before,
+    .project-features::before,
+    .project-stack::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .project-description h3,
+    .project-features h3,
+    .project-stack h3 {
+      color: var(--white-2);
+      margin-bottom: 20px;
+      font-weight: var(--fw-600);
+    }
+
+    .project-description p {
+      color: var(--light-gray);
+      line-height: 1.7;
+      font-size: var(--fs-6);
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features-list li {
+      color: var(--light-gray);
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .features-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--orange-yellow-crayola);
+      font-weight: bold;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .stack-tag {
+      background: var(--border-gradient-onyx);
+      color: var(--orange-yellow-crayola);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+      border: 1px solid var(--jet);
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .project-header {
+        grid-template-columns: 300px 1fr;
+        align-items: start;
+      }
+      
+      .project-image img {
+        height: 250px;
+      }
+      
+      .project-details-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .project-description {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .project-details-grid {
+        grid-template-columns: 2fr 1fr;
+      }
+      
+      .project-features {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      
+      .project-stack {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/profile.png" alt="Md Sharik Ansari" width="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Md Sharik Ansari">Md Sharik Ansari</h1>
+          <p class="title">Java Backend Developer</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:mdsharik828@gmail.com" class="contact-link">mdsharik828@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+919382339799" class="contact-link">+91 9382339799</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2006-07-25">25 July, 2006</time>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Asansol, India</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://linkedin.com/in/mdsharikansari" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/mdsharikansari" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://x.com/mdsharikansari_" class="social-link" target="_blank">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.instagram.com/mdsharikansari_/" class="social-link" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- Back Button -->
+      <nav class="back-nav">
+        <a href="index.html#portfolio" class="back-btn">
+          <ion-icon name="arrow-back"></ion-icon>
+          <span>Back to Portfolio</span>
+        </a>
+      </nav>
+
+      <!-- PROJECT DETAILS -->
+      <article class="project-details active" data-page="project">
+        <header>
+          <h2 class="h2 article-title">Project Details</h2>
+        </header>
+
+        <section class="project-content">
+          <div id="project-loading" class="loading">
+            <p>Loading project details...</p>
+          </div>
+          
+          <div id="project-not-found" class="not-found" style="display: none;">
+            <div class="content-card">
+              <h3 class="h3">Project Not Found</h3>
+              <p>The project you're looking for doesn't exist.</p>
+              <a href="index.html#portfolio" class="back-to-portfolio">← Back to Portfolio</a>
+            </div>
+          </div>
+
+          <div id="project-container" class="project-container" style="display: none;">
+            <!-- Project content will be dynamically inserted here -->
+          </div>
+        </section>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- Project JS -->
+  <script src="./assets/js/project.js"></script>
+
+  <!-- Ionicon -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
