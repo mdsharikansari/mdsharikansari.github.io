@@ -1,48 +1,135 @@
 'use strict';
 
-// element toggle function
-const elementToggleFunc = function (elem) { 
-  elem.classList.toggle("active"); 
-}
+// --- DATA: PROJECTS ---
+const PROJECTS_DATA = {
+    "secure-blog-api": {
+        title: "Secure Blog API",
+        category: "APIs",
+        short: "Secure REST API for multi-user blogging with JWT authentication and role-based access control.",
+        description: "A robust backend API built with Spring Boot that provides secure blogging functionality with user authentication, post management, and comment systems.",
+        features: [
+            "JWT-based authentication and role-based access",
+            "CRUD operations for posts and comments",
+            "Pagination and search filters",
+            "Global exception handling and DTO validation"
+        ],
+        stack: ["Java", "Spring Boot", "Spring Security", "MySQL", "JPA", "JWT"],
+        repo: "https://github.com/mdsharikansari/secure-blog-api",
+        image: "./assets/images/project-1.png"
+    },
+    "student-management-system": {
+        title: "Student Management System",
+        category: "Web Applications",
+        short: "Web application for managing students, courses, and results through an admin dashboard.",
+        description: "A full-stack web application that streamlines student data management with an intuitive admin interface and comprehensive CRUD operations.",
+        features: [
+            "Designed a complex Many-to-Many database relationship between students and courses",
+            "Admin authentication and session management",
+            "CRUD for students and course assignments",
+            "Created relational endpoints to enroll students in specific courses"
+        ],
+        stack: ["Java", "Spring Boot", "Spring Web", "Spring Data JPA", "MySQL", "Lombok", "Maven"],
+        repo: "https://github.com/mdsharikansari/student-management-system",
+        image: "./assets/images/project-2.png"
+    },
+    "task-tracker-api": {
+        title: "Task Tracker API",
+        category: "APIs",
+        short: "Backend API for managing tasks with priorities, tags, and due dates.",
+        description: "A comprehensive task management API featuring scheduling capabilities, priority-based organization, and flexible filtering options.",
+        features: [
+            "CRUD operations for tasks",
+            "Tag and priority support",
+            "Filtering by status or due date",
+            "Background scheduling with Quartz"
+        ],
+        stack: ["Java", "Spring Boot", "Quartz Scheduler", "MySQL", "REST API"],
+        repo: "https://github.com/mdsharikansari/task-tracker-api",
+        image: "./assets/images/project-3.png"
+    }
+};
 
-// sidebar variables
+// --- DATA: CERTIFICATIONS ---
+const CERTIFICATIONS_DATA = {
+    "dsa-java": {
+        title: "Data Structures & Algorithms in Java",
+        issuer: "LearnYard",
+        date: "2024",
+        image: "./assets/images/certifications/dsa-cert.png",
+        verifyUrl: "#",
+        category: "Programming"
+    },
+    "google-generative-ai": {
+        title: "Introduction to Generative AI Studio",
+        issuer: "Google Cloud & Simplilearn",
+        date: "October 16, 2025",
+        image: "./assets/images/certifications/google-generative-ai.jpg",
+        verifyUrl: "#",
+        category: "AI & Machine Learning"
+    },
+    "ibm-generative-ai": {
+        title: "Generative AI in Action",
+        issuer: "IBM SkillsBuild",
+        date: "October 22, 2025",
+        image: "./assets/images/certifications/ibm-gen-ai.jpg",
+        verifyUrl: "https://www.credly.com/badges/ace93b91-96f6-4042-9220-bc23734e5607",
+        category: "AI & Machine Learning"
+    },
+    "ibm-ai-solutions": {
+        title: "Building AI Solutions Using Advanced Algorithms",
+        issuer: "IBM SkillsBuild",
+        date: "October 22, 2025",
+        image: "./assets/images/certifications/building-ai-solution.jpg",
+        verifyUrl: "https://www.credly.com/badges/12ffe408-b495-441e-b154-0644976fec72",
+        category: "AI & Machine Learning"
+    }
+};
+
+// --- HELPER: Element Toggle ---
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+// --- SIDEBAR TOGGLE ---
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-// sidebar toggle functionality for mobile
 if (sidebar && sidebarBtn) {
-  sidebarBtn.addEventListener("click", function () { 
-    elementToggleFunc(sidebar); 
-  });
+  sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 }
 
-// custom select variables
+// --- THEME TOGGLE (DARK/LIGHT) ---
+const themeBtn = document.querySelector("[data-theme-btn]");
+const themeIcon = themeBtn.querySelector("ion-icon");
+
+// Check LocalStorage for preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  document.documentElement.setAttribute("data-theme", "light");
+  themeIcon.setAttribute("name", "sunny-outline");
+} else {
+  document.documentElement.setAttribute("data-theme", "dark");
+  themeIcon.setAttribute("name", "moon-outline");
+}
+
+themeBtn.addEventListener("click", function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  
+  if (currentTheme === "light") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    themeIcon.setAttribute("name", "moon-outline");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    themeIcon.setAttribute("name", "sunny-outline");
+  }
+});
+
+
+// --- FILTERING (PORTFOLIO) ---
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-if (select) {
-  select.addEventListener("click", function () { 
-    elementToggleFunc(this); 
-  });
-}
-
-// add event in all select items
-if (selectItems.length > 0) {
-  for (let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener("click", function () {
-      let selectedValue = this.innerText.toLowerCase();
-      if (selectValue) {
-        selectValue.innerText = this.innerText;
-      }
-      elementToggleFunc(select);
-      filterFunc(selectedValue);
-    });
-  }
-}
-
-// filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
@@ -57,18 +144,30 @@ const filterFunc = function (selectedValue) {
   }
 }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+// Select Box functionality
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
+}
 
+if (selectItems.length > 0) {
+  for (let i = 0; i < selectItems.length; i++) {
+    selectItems[i].addEventListener("click", function () {
+      let selectedValue = this.innerText.toLowerCase();
+      if (selectValue) selectValue.innerText = this.innerText;
+      elementToggleFunc(select);
+      filterFunc(selectedValue);
+    });
+  }
+}
+
+// Filter Button functionality
+let lastClickedBtn = filterBtn[0];
 if (filterBtn.length > 0) {
   for (let i = 0; i < filterBtn.length; i++) {
     filterBtn[i].addEventListener("click", function () {
       let selectedValue = this.innerText.toLowerCase();
-      if (selectValue) {
-        selectValue.innerText = this.innerText;
-      }
+      if (selectValue) selectValue.innerText = this.innerText;
       filterFunc(selectedValue);
-
       lastClickedBtn.classList.remove("active");
       this.classList.add("active");
       lastClickedBtn = this;
@@ -76,262 +175,135 @@ if (filterBtn.length > 0) {
   }
 }
 
-// PAGE NAVIGATION
+// --- NAVIGATION (SINGLE PAGE APP LOGIC) ---
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// Page transition animation
-function fadeOutPage(callback) {
-  const activePage = document.querySelector('article.active');
-  if (activePage) {
-    activePage.style.opacity = '0';
-    activePage.style.transform = 'translateY(20px)';
-    activePage.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+// Add Event Listener to Nav Links
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+    const targetPage = this.getAttribute('data-nav-link').toLowerCase();
     
-    setTimeout(() => {
-      if (callback) callback();
-    }, 300);
-  } else {
-    if (callback) callback();
-  }
-}
-
-function fadeInPage(pageElement) {
-  pageElement.style.opacity = '0';
-  pageElement.style.transform = 'translateY(20px)';
-  pageElement.classList.add('active');
-  
-  // Force reflow
-  pageElement.offsetHeight;
-  
-  pageElement.style.opacity = '1';
-  pageElement.style.transform = 'translateY(0)';
-  pageElement.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-}
-
-// navigation with smooth transitions
-if (navigationLinks.length > 0 && pages.length > 0) {
-  navigationLinks.forEach(link => {
-    link.addEventListener("click", function(e) {
-      const targetPage = this.getAttribute('data-nav-link');
-      
-      // Handle certifications page (external page) with smooth transition
-      if (targetPage === 'certifications') {
-        e.preventDefault();
-        
-        // Add loading state
-        document.body.classList.add('page-transitioning');
-        
-        // Fade out current content
-        fadeOutPage(() => {
-          // Navigate to certifications page after fade out
-          setTimeout(() => {
-            window.location.href = 'certifications.html';
-          }, 200);
-        });
-        
-        return;
-      }
-      
-      if (this.classList.contains('active')) return;
-      
-      document.body.classList.add('page-transitioning');
-      
-      localStorage.removeItem('returnToPortfolio');
-      
-      // Fade out current page
-      fadeOutPage(() => {
-        navigationLinks.forEach(l => l.classList.remove("active"));
-        pages.forEach(p => {
-          p.classList.remove("active");
-          p.style.opacity = '0';
-          p.style.transform = 'translateY(20px)';
-        });
-
-        // Activate the clicked link
-        this.classList.add("active");
-
-        const matchingPage = document.querySelector(`[data-page="${targetPage}"]`);
-        if (matchingPage) {
-          fadeInPage(matchingPage);
-          
-          // Scroll to top smoothly
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-          
-          history.pushState(null, null, `#${targetPage}`);
+    // Update Active Nav Link
+    for (let j = 0; j < navigationLinks.length; j++) {
+        if (navigationLinks[j].getAttribute('data-nav-link').toLowerCase() === targetPage) {
+            navigationLinks[j].classList.add("active");
+        } else {
+            navigationLinks[j].classList.remove("active");
         }
-        
-        setTimeout(() => {
-          document.body.classList.remove('page-transitioning');
-        }, 400);
-      });
-    });
-  });
-}
-
-// Handle browser back/forward buttons
-window.addEventListener('popstate', function() {
-  const hash = window.location.hash.substring(1);
-  if (hash) {
-    const targetLink = document.querySelector(`[data-nav-link="${hash}"]`);
-    if (targetLink) {
-      targetLink.click();
     }
-  }
-});
 
-// Check if we should return to portfolio section on page load
-function checkPortfolioReturn() {
-  if (localStorage.getItem('returnToPortfolio') === 'true') {
-    localStorage.removeItem('returnToPortfolio');
-    
-    // Find and activate portfolio section
-    const portfolioNav = document.querySelector('[data-nav-link="portfolio"]');
-    const portfolioPage = document.querySelector('[data-page="portfolio"]');
-    
-    if (portfolioNav && portfolioPage) {
-      // Remove active from all
-      navigationLinks.forEach(nav => nav.classList.remove("active"));
-      pages.forEach(page => page.classList.remove("active"));
-      
-      // Activate portfolio
-      portfolioNav.classList.add("active");
-      portfolioPage.classList.add("active");
-      
-      // Scroll to top
-      window.scrollTo(0, 0);
-    }
-  }
-}
-
-// Check if we're returning from certifications page
-function checkCertificationsReturn() {
-  if (localStorage.getItem('returnFromCertifications') === 'true') {
-    const targetSection = localStorage.getItem('targetSection') || 'about';
-    
-    localStorage.removeItem('returnFromCertifications');
-    localStorage.removeItem('targetSection');
-    
-    // Find and activate the target section
-    const targetNav = document.querySelector(`[data-nav-link="${targetSection}"]`);
-    const targetPage = document.querySelector(`[data-page="${targetSection}"]`);
-    
-    if (targetNav && targetPage) {
-      // Remove active from all
-      navigationLinks.forEach(nav => nav.classList.remove("active"));
-      pages.forEach(page => {
-        page.classList.remove("active");
-        page.style.opacity = '0';
-        page.style.transform = 'translateY(20px)';
-      });
-
-      // Activate target section
-      targetNav.classList.add("active");
-      fadeInPage(targetPage);
-      
-      // Scroll to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-  }
-}
-
-// Initialize the page with fade-in effect
-document.addEventListener('DOMContentLoaded', function() {
-  // Add initial fade-in to active page
-  const activePage = document.querySelector('article.active');
-  if (activePage) {
-    activePage.style.opacity = '0';
-    activePage.style.transform = 'translateY(0)';
-    activePage.style.transition = 'opacity 0.5s ease';
-    
-    // Force reflow
-    activePage.offsetHeight;
-    
-    activePage.style.opacity = '1';
-  }
-  
-  // Check if we're returning from a project page
-  checkPortfolioReturn();
-  
-  // Check if we're returning from certifications page
-  checkCertificationsReturn();
-  
-  // Set the first page as active if none is active
-  const activePages = document.querySelectorAll('article.active');
-  if (activePages.length === 0 && pages.length > 0) {
-    pages[0].classList.add('active');
-  }
-  
-  // Set the first nav link as active if none is active
-  const activeLinks = document.querySelectorAll('.navbar-link.active');
-  if (activeLinks.length === 0 && navigationLinks.length > 0) {
-    navigationLinks[0].classList.add('active');
-  }
-  
-  // Remove loading state after page is fully loaded
-  window.addEventListener('load', function() {
-    document.body.classList.remove('page-transitioning');
-  });
-});
-
-// Fallback for missing images
-document.addEventListener('DOMContentLoaded', function() {
-  const images = document.querySelectorAll('img');
-  images.forEach(img => {
-    img.addEventListener('error', function() {
-      this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pgo8L3N2Zz4K';
-      this.alt = 'Image not found';
-    });
-  });
-});
-
-// Project link click handler
-document.addEventListener('DOMContentLoaded', function() {
-  const projectLinks = document.querySelectorAll('[data-project-link]');
-  
-  projectLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      // Store that we're in portfolio section
-      localStorage.setItem('returnToPortfolio', 'true');
-    });
-  });
-});
-
-// Certifications link click handler
-document.addEventListener('DOMContentLoaded', function() {
-  const certificationsLinks = document.querySelectorAll('[data-nav-link="certifications"]');
-  
-  certificationsLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      // For certifications page (external), let the default navigation handle it
-      // The main navigation handler above will redirect to certifications.html
-    });
-  });
-});
-// Smooth scrolling for anchor links
-document.addEventListener('DOMContentLoaded', function() {
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+    // Update Active Page Article
+    for (let j = 0; j < pages.length; j++) {
+      if (targetPage === pages[j].dataset.page) {
+        pages[j].classList.add("active");
+        window.scrollTo(0, 0);
+      } else {
+        pages[j].classList.remove("active");
       }
-    });
+    }
   });
+}
+
+
+// --- DYNAMIC PROJECT DETAILS ---
+function showProjectDetails(projectId) {
+    const projectData = PROJECTS_DATA[projectId];
+    if (!projectData) return;
+
+    const contentContainer = document.getElementById("dynamic-project-content");
+    
+    // Inject Content
+    contentContainer.innerHTML = `
+        <div class="project-header">
+            <div class="project-image">
+              <img src="${projectData.image}" alt="${projectData.title}" loading="lazy">
+            </div>
+            <div class="project-info">
+              <h1 class="project-title">${projectData.title}</h1>
+              <span class="project-category">${projectData.category}</span>
+              <p class="project-short">${projectData.short}</p>
+              <div class="project-links">
+                <a href="${projectData.repo}" class="project-link repo-link" target="_blank">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+        </div>
+
+        <div class="project-details-grid">
+            <div class="project-description">
+              <h3 class="h3">Project Description</h3>
+              <p>${projectData.description}</p>
+            </div>
+
+            <div class="project-features">
+              <h3 class="h3">Key Features</h3>
+              <ul class="features-list">
+                ${projectData.features.map(f => `<li>${f}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="project-stack">
+              <h3 class="h3">Tech Stack</h3>
+              <div class="stack-tags">
+                ${projectData.stack.map(s => `<span class="stack-tag">${s}</span>`).join('')}
+              </div>
+            </div>
+        </div>
+    `;
+
+    // Switch View: Hide all pages, Show project details
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].classList.remove("active");
+    }
+    document.querySelector("[data-page='project-details']").classList.add("active");
+    window.scrollTo(0, 0);
+}
+
+function closeProjectDetails() {
+    // Switch View: Hide project details, Show Portfolio
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].classList.remove("active");
+    }
+    document.querySelector("[data-page='portfolio']").classList.add("active");
+    window.scrollTo(0, 0);
+}
+
+
+// --- DYNAMIC CERTIFICATIONS RENDERING ---
+function renderCertifications() {
+    const grid = document.getElementById('certifications-grid');
+    if (!grid) return;
+
+    let html = '';
+    Object.values(CERTIFICATIONS_DATA).forEach(cert => {
+        html += `
+            <div class="certification-card">
+                <div class="certification-image">
+                    <img src="${cert.image}" alt="${cert.title}" loading="lazy"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'padding: 60px; text-align: center; color: #999;\\'>Image not available</div>';">
+                </div>
+                <div class="certification-info">
+                    <h3 class="certification-title">${cert.title}</h3>
+                    <span class="certification-issuer">${cert.issuer}</span>
+                    <div class="certification-date">Issued: ${cert.date}</div>
+                    ${cert.verifyUrl && cert.verifyUrl !== '#' ? 
+                        `<a href="${cert.verifyUrl}" class="certification-verify" target="_blank">
+                            <ion-icon name="shield-checkmark-outline"></ion-icon>
+                            <span>Verify Certificate</span>
+                        </a>` : ''
+                    }
+                </div>
+            </div>
+        `;
+    });
+    grid.innerHTML = html;
+}
+
+// Update Date
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderCertifications();
 });
