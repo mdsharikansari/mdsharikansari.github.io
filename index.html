@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md Sharik Ansari - Java Backend Developer</title>
+  <meta name="description" content="Md Sharik Ansari - Java backend developer portfolio: Spring Boot, REST APIs, MySQL and AI-powered applications.">
+  <title>Md Sharik Ansari - Java Full Stack Developer</title>
 
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-
-  <link rel="stylesheet" href="./assets/css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -21,23 +21,22 @@
   <main>
 
     <aside class="sidebar" data-sidebar>
-      
-      <button class="theme-btn" data-theme-btn title="Toggle Light/Dark Theme">
-        <ion-icon name="moon-outline"></ion-icon>
-      </button>
 
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <img src="./assets/images/profile.png" alt="Md Sharik Ansari" width="80">
-        </figure>
-        <div class="info-content">
-          <h1 class="name" title="Md Sharik Ansari">Md Sharik Ansari</h1>
-          <p class="title">Java Backend Developer</p>
-        </div>
-        <button class="info_more-btn" data-sidebar-btn>
+      <div class="sidebar-actions">
+        <button class="info_more-btn" data-sidebar-btn aria-label="Show or hide contacts">
           <span>Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
+      </div>
+
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/profile.png" alt="Md Sharik Ansari" width="80" height="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Md Sharik Ansari">Md Sharik Ansari</h1>
+          <p class="title">Full-Stack Java Developer | AI Integration</p>
+        </div>
       </div>
 
       <div class="sidebar-info_more">
@@ -55,31 +54,11 @@
 
           <li class="contact-item">
             <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+919382339799" class="contact-link">+91 9382339799</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-              <time datetime="2006-07-25">25 July, 2006</time>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
             <div class="contact-info">
               <p class="contact-title">Location</p>
-              <address>Asansol, India</address>
+              <address>Asansol, West Bengal, India</address>
             </div>
           </li>
         </ul>
@@ -87,8 +66,8 @@
         <div class="separator"></div>
 
         <div class="contact-cta">
-          <h3 class="h3 cta-title">Let's Build Together</h3>
-          <p class="cta-text">Open to freelance projects and internship opportunities</p>
+          <h3 class="h3 cta-title">Let’s Build Together</h3>
+          <p class="cta-text">Open to backend internships and entry-level software developer opportunities</p>
           <div class="cta-buttons">
             <a href="mailto:mdsharik828@gmail.com" class="cta-btn primary">
               <ion-icon name="mail-outline"></ion-icon>
@@ -100,16 +79,19 @@
             </a>
           </div>
           <div class="cta-social-links">
-            <a href="https://linkedin.com/in/mdsharikansari" class="cta-social-link" target="_blank">
+            <a href="https://linkedin.com/in/mdsharikansari" class="cta-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="https://github.com/mdsharikansari" class="cta-social-link" target="_blank">
+            <a href="https://github.com/mdsharikansari" class="cta-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <ion-icon name="logo-github"></ion-icon>
             </a>
-            <a href="https://x.com/mdsharikansari_" class="cta-social-link" target="_blank">
+            <a href="https://leetcode.com/u/mdsharikansari/" class="cta-social-link" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </a>
+            <a href="https://x.com/mdsharikansari_" class="cta-social-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
-            <a href="https://www.instagram.com/mdsharikansari_/" class="cta-social-link" target="_blank">
+            <a href="https://www.instagram.com/mdsharikansari_/" class="cta-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </div>
@@ -121,18 +103,11 @@
 
       <nav class="navbar">
         <ul class="navbar-list">
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link="about">About</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="resume">Resume</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="portfolio">Portfolio</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="certifications">Certifications</button>
-          </li>
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link="about">About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link="resume">Resume</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link="portfolio">Portfolio</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link="certifications">Certifications</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link="contact">Contact</button></li>
         </ul>
       </nav>
 
@@ -143,91 +118,55 @@
 
         <section class="about-text">
           <p>
-            I'm a second-year Computer Science student at <strong>NSHM Knowledge Campus, Durgapur</strong>,
-            focused on building scalable, reliable software systems.
+            I’m a Computer Science and Engineering student at <strong>NSHM Knowledge Campus, Durgapur</strong>,
+            focused on building practical software solutions with Java and Spring Boot.
           </p>
           <p>
-            I specialize in <strong>Java backend development</strong> with expertise in Spring Boot,
-            REST APIs, and database design. Currently exploring AI integration in modern software systems
-            and mastering Data Structures & Algorithms.
+            I’ve built independent projects involving REST APIs, database-driven applications, and core programming
+            concepts. I’m developing my skills in Spring Boot, MySQL, JPA, and backend application design while
+            exploring AI-powered applications.
           </p>
           <p class="professional-tagline">
-            <strong>Java Backend Developer | API Engineer | Exploring AI Integration in Modern Software Systems</strong>
+            <strong>Java Backend Development | Spring Boot | REST APIs | MySQL | Exploring AI Integration</strong>
           </p>
         </section>
 
         <section class="service">
-          <h3 class="h3 service-title">What I'm doing</h3>
+          <h3 class="h3 service-title">What I’m doing</h3>
           <ul class="service-list">
             <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/dsa icon.svg" alt="DSA icon" width="80">
+              <div class="service-icon-box"><img src="./assets/images/backend%20api.svg" alt="Backend API icon" width="80"></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Backend Development</h4>
+                <p class="service-item-text">Building Java applications and learning to structure backend services with Spring Boot and REST APIs.</p>
               </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/dsa%20icon.svg" alt="DSA icon" width="80"></div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">DSA (Problem Solving)</h4>
-                <p class="service-item-text">
-                  Solving complex problems with data structures and algorithms in Java.
-                </p>
+                <p class="service-item-text">Developing algorithmic thinking and programming fundamentals through Java and Data Structures and Algorithms practice.</p>
               </div>
             </li>
-
             <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/backend api.svg" alt="Backend API icon" width="80">
-              </div>
+              <div class="service-icon-box"><img src="./assets/images/data%20base.svg" alt="Database icon" width="80"></div>
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Backend API Development</h4>
-                <p class="service-item-text">
-                  Building secure, efficient, and scalable RESTful APIs using Java and Spring Boot.
-                </p>
+                <h4 class="h4 service-item-title">Database Management</h4>
+                <p class="service-item-text">Working with MySQL and learning persistence, entity mapping, and data access using JPA.</p>
               </div>
             </li>
-
             <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/data base.svg" alt="Database icon" width="80">
-              </div>
+              <div class="service-icon-box"><img src="./assets/images/AI.svg" alt="AI icon" width="80"></div>
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Database Design</h4>
-                <p class="service-item-text">
-                  Designing and managing relational databases with MySQL and Spring Data JPA.
-                </p>
+                <h4 class="h4 service-item-title">AI-Powered Applications</h4>
+                <p class="service-item-text">Exploring AI agents and intelligent application workflows through projects such as an AI Trip Planner.</p>
               </div>
             </li>
-
             <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/Api.svg" alt="API" width="80">
-              </div>
+              <div class="service-icon-box"><img src="./assets/images/Api.svg" alt="API integration icon" width="80"></div>
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">API Integration & Automation</h4>
-                <p class="service-item-text">
-                  Integrating third-party APIs and automating backend tasks to streamline workflows and improve productivity.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/deployment.svg" alt="Deployment" width="80">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Deployment & Hosting</h4>
-                <p class="service-item-text">
-                  Deploying Spring Boot applications on platforms like Render, Railway, and AWS with proper CI/CD workflows.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/system.svg" alt="System" width="80">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">System Design</h4>
-                <p class="service-item-text">
-                  Learning to design scalable, modular backend systems for high-traffic applications and real-world use cases.
-                </p>
+                <h4 class="h4 service-item-title">API Integration &amp; Automation</h4>
+                <p class="service-item-text">Exploring API integration and practical application workflows through independent projects.</p>
               </div>
             </li>
           </ul>
@@ -239,30 +178,26 @@
           <h2 class="h2 article-title">Resume</h2>
         </header>
 
+        <section class="about-text">
+          <p>
+            Computer Science and Engineering student with hands-on independent project experience in Java, Spring Boot,
+            REST API development, and MySQL. Familiar with backend application development and web fundamentals, with
+            ongoing learning in database persistence, application architecture, and AI-powered software. Seeking a
+            backend development internship or entry-level software engineering role.
+          </p>
+        </section>
+
         <section class="timeline">
           <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
             <h3 class="h3">Education</h3>
           </div>
-
           <ol class="timeline-list">
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">NSHM Knowledge Campus, Durgapur</h4>
-              <span>2024 — 2028</span>
+              <h4 class="h4 timeline-item-title">Bachelor of Technology (B.Tech) — Computer Science and Engineering</h4>
+              <span>NSHM Knowledge Campus, Durgapur · 2024 — 2028</span>
               <p class="timeline-text">
-                Bachelor of Technology in Computer Science and Engineering.
-                Currently in second year with focus on software development, algorithms, and system design.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">High School</h4>
-              <span>2021 — 2023</span>
-              <p class="timeline-text">
-                Completed higher secondary education with focus on science and mathematics.
-                Developed strong foundation in problem-solving and logical thinking.
+                Studying core computer science with a focus on programming, data structures and algorithms, and backend development.
               </p>
             </li>
           </ol>
@@ -270,28 +205,23 @@
 
         <section class="timeline">
           <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Experience</h3>
+            <div class="icon-box"><ion-icon name="briefcase-outline"></ion-icon></div>
+            <h3 class="h3">Experience <small class="h3-note">(independent, not formal employment)</small></h3>
           </div>
-
           <ol class="timeline-list">
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Java Backend Developer</h4>
-              <span>2024 — Present</span>
+              <h4 class="h4 timeline-item-title">Independent Software Developer — Personal Projects</h4>
+              <span>Ongoing</span>
               <p class="timeline-text">
-                Developing RESTful APIs and backend systems using Java and Spring Boot.
-                Working on database design, API integration, and deployment of applications.
+                Building independent Java applications and backend API projects while practicing Spring Boot,
+                REST API development, database persistence, and application logic.
               </p>
             </li>
-
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Freelance Developer</h4>
-              <span>2024 — Present</span>
+              <h4 class="h4 timeline-item-title">AI Application Exploration — Independent Learning</h4>
+              <span>Ongoing</span>
               <p class="timeline-text">
-                Worked on various projects including automation tools, web applications,
-                and backend systems for small businesses and personal projects.
+                Exploring AI-powered application development through an AI Trip Planner Agent project.
               </p>
             </li>
           </ol>
@@ -300,96 +230,42 @@
         <section class="skill">
           <h3 class="h3 skills-title">My skills</h3>
           <ul class="skills-list content-card">
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Java</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Spring Boot</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">MySQL</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">RESTful APIs</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Data Structures & Algorithms</h5>
-                <data value="70">70%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Git & GitHub</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">Java</h5><data>— Programming</data></div></li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">JavaScript &amp; SQL</h5><data>— Programming</data></div></li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">Spring Boot &amp; REST APIs</h5><data>— Backend</data></div></li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">MySQL &amp; JPA</h5><data>— Database</data></div></li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">HTML, CSS &amp; JavaScript</h5><data>— Frontend</data></div></li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">Git, GitHub &amp; Maven</h5><data>— Tools</data></div></li>
+            <li class="skills-item"><div class="title-wrapper"><h5 class="h5">Generative AI fundamentals &amp; AI agent exploration</h5><data>— AI</data></div></li>
           </ul>
         </section>
 
         <section class="achievements">
-          <h3 class="h3 achievements-title">Key Achievements</h3>
+          <h3 class="h3 achievements-title">Key Highlights</h3>
           <div class="achievements-grid">
             <div class="achievement-card">
-              <div class="achievement-icon">
-                <ion-icon name="code-slash-outline"></ion-icon>
-              </div>
+              <div class="achievement-icon"><ion-icon name="code-slash-outline"></ion-icon></div>
               <div class="achievement-content">
                 <h4>Problem Solving</h4>
-                <p>Mastered Data Structures & Algorithms through consistent practice</p>
+                <p>Continuing to strengthen Java DSA and problem-solving skills through practice.</p>
+                <a href="https://leetcode.com/u/mdsharikansari/" class="achievement-link" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="open-outline"></ion-icon>
+                  <span>View LeetCode profile</span>
+                </a>
               </div>
             </div>
             <div class="achievement-card">
-              <div class="achievement-icon">
-                <ion-icon name="server-outline"></ion-icon>
-              </div>
+              <div class="achievement-icon"><ion-icon name="server-outline"></ion-icon></div>
               <div class="achievement-content">
                 <h4>Backend Development</h4>
-                <p>Built production-ready REST APIs with Spring Boot and MySQL</p>
+                <p>Developed independent REST API projects using Java and Spring Boot.</p>
               </div>
             </div>
             <div class="achievement-card">
-              <div class="achievement-icon">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-              </div>
+              <div class="achievement-icon"><ion-icon name="lock-closed-outline"></ion-icon></div>
               <div class="achievement-content">
                 <h4>Secure Systems</h4>
-                <p>Designed and implemented JWT authentication for secure APIs</p>
+                <p>Explored authentication and API security concepts in backend development.</p>
               </div>
             </div>
           </div>
@@ -403,75 +279,82 @@
 
         <section class="projects">
           <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>APIs</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Web Applications</button>
-            </li>
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>APIs</button></li>
+            <li class="filter-item"><button data-filter-btn>Applications</button></li>
           </ul>
 
           <div class="filter-select-box">
             <button class="filter-select" data-select>
               <div class="select-value" data-select-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
             </button>
-
             <ul class="select-list">
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>APIs</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Web Applications</button>
-              </li>
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>APIs</button></li>
+              <li class="select-item"><button data-select-item>Applications</button></li>
             </ul>
           </div>
 
           <ul class="project-list">
             <li class="project-item active" data-filter-item data-category="apis">
-              <a href="#" onclick="showProjectDetails('secure-blog-api'); return false;">
+              <a href="#" data-project-id="secure-blog-api">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/project-1.png" alt="Secure Blog API" loading="lazy">
                 </figure>
                 <h3 class="project-title">Secure Blog API</h3>
                 <p class="project-category">APIs</p>
               </a>
             </li>
-
-            <li class="project-item active" data-filter-item data-category="web applications">
-              <a href="#" onclick="showProjectDetails('student-management-system'); return false;">
+            <li class="project-item active" data-filter-item data-category="apis">
+              <a href="#" data-project-id="student-management-system">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/project-2.png" alt="Student Management System" loading="lazy">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-2.png" alt="Student Management System API" loading="lazy">
                 </figure>
-                <h3 class="project-title">Student Management System</h3>
-                <p class="project-category">Web Applications</p>
+                <h3 class="project-title">Student Management System API</h3>
+                <p class="project-category">APIs</p>
               </a>
             </li>
-
             <li class="project-item active" data-filter-item data-category="apis">
-              <a href="#" onclick="showProjectDetails('task-tracker-api'); return false;">
+              <a href="#" data-project-id="task-tracker-api">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/project-3.png" alt="Task Tracker API" loading="lazy">
                 </figure>
                 <h3 class="project-title">Task Tracker API</h3>
                 <p class="project-category">APIs</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="apis">
+              <a href="#" data-project-id="bank-customer-api">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-4.png" alt="Bank Customer Management REST API" loading="lazy">
+                </figure>
+                <h3 class="project-title">Bank Customer Management REST API</h3>
+                <p class="project-category">APIs</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="applications">
+              <a href="#" data-project-id="console-banking-application">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-5.png" alt="Console Banking Application" loading="lazy">
+                </figure>
+                <h3 class="project-title">Console Banking Application</h3>
+                <p class="project-category">Applications</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="applications">
+              <a href="#" data-project-id="ai-trip-planner-agent">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-6.png" alt="AI Trip Planner Agent" loading="lazy">
+                </figure>
+                <h3 class="project-title">AI Trip Planner Agent</h3>
+                <p class="project-category">Applications</p>
               </a>
             </li>
           </ul>
@@ -484,15 +367,107 @@
         </header>
 
         <section class="about-text">
-          <p>
-            Certifications and professional courses demonstrating expertise in Java development, data structures, and applied AI technologies
-          </p>
+          <p>Courses and certificates completed in Java, data structures, web development, and generative AI fundamentals.</p>
         </section>
 
         <section class="certifications-content">
-          <div id="certifications-grid" class="certifications-grid">
-            </div>
+          <div class="certificate-filters" id="certificate-filters">
+            <button type="button" class="active" data-category="all">All</button>
+            <button type="button" data-category="java">Java &amp; Backend</button>
+            <button type="button" data-category="web">Web Development</button>
+            <button type="button" data-category="ai-ml">AI &amp; ML</button>
+            <button type="button" data-category="other">Other</button>
+          </div>
+          <div id="certifications-grid" class="certifications-grid"></div>
+
+          <button type="button" id="show-more-certificates" class="show-more-certificates">
+            Show More Certificates
+          </button>
         </section>
+      </article>
+
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="contact-hero">
+          <p class="contact-badge"><span class="contact-badge-dot" aria-hidden="true"></span>Open to backend internships &amp; entry-level roles</p>
+          <h3 class="h3 contact-hero-title">Let’s build something together</h3>
+          <p class="contact-hero-text">
+            Have an opportunity, a project idea, or a question about my work? Send me a message
+            or reach out through any of the channels below.
+          </p>
+        </section>
+
+        <div class="contact-layout">
+
+          <section class="contact-panel">
+            <h3 class="h3 contact-panel-title">Get in touch</h3>
+            <ul class="contact-methods">
+              <li class="contact-method">
+                <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+                <div class="contact-method-body">
+                  <p class="contact-method-label">Email</p>
+                  <a href="mailto:mdsharik828@gmail.com" class="contact-method-value">mdsharik828@gmail.com</a>
+                </div>
+                <button type="button" class="contact-copy-btn" id="copy-email-btn" aria-label="Copy email address" title="Copy email address">
+                  <ion-icon name="copy-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="contact-method">
+                <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+                <div class="contact-method-body">
+                  <p class="contact-method-label">Location</p>
+                  <p class="contact-method-value">Asansol, West Bengal, India</p>
+                </div>
+              </li>
+            </ul>
+
+            <h3 class="h3 contact-panel-title contact-panel-title--spaced">Find me online</h3>
+            <ul class="contact-socials">
+              <li><a href="https://github.com/mdsharikansari" class="contact-social" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-github"></ion-icon><span class="contact-social-text"><strong>GitHub</strong><small>mdsharikansari</small></span></a></li>
+              <li><a href="https://linkedin.com/in/mdsharikansari" class="contact-social" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-linkedin"></ion-icon><span class="contact-social-text"><strong>LinkedIn</strong><small>mdsharikansari</small></span></a></li>
+              <li><a href="https://leetcode.com/u/mdsharikansari/" class="contact-social" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="code-slash-outline"></ion-icon><span class="contact-social-text"><strong>LeetCode</strong><small>mdsharikansari</small></span></a></li>
+              <li><a href="https://x.com/mdsharikansari_" class="contact-social" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-twitter"></ion-icon><span class="contact-social-text"><strong>X (Twitter)</strong><small>@mdsharikansari_</small></span></a></li>
+              <li><a href="https://www.instagram.com/mdsharikansari_/" class="contact-social" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-instagram"></ion-icon><span class="contact-social-text"><strong>Instagram</strong><small>@mdsharikansari_</small></span></a></li>
+            </ul>
+          </section>
+
+          <section class="contact-panel">
+            <h3 class="h3 contact-panel-title">Send a message</h3>
+            <form class="contact-form" id="contact-form">
+              <div class="contact-field">
+                <label for="contact-name">Your name</label>
+                <input type="text" id="contact-name" name="name" maxlength="80" autocomplete="name" placeholder="Jane Doe" required>
+              </div>
+              <div class="contact-field">
+                <label for="contact-email">Your email</label>
+                <input type="email" id="contact-email" name="email" maxlength="120" autocomplete="email" placeholder="jane@example.com" required>
+              </div>
+              <div class="contact-field">
+                <label for="contact-subject">Subject <small>(optional)</small></label>
+                <input type="text" id="contact-subject" name="subject" maxlength="120" placeholder="Internship opportunity">
+              </div>
+              <div class="contact-field">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="6" maxlength="1500" placeholder="Tell me a little about what you have in mind…" required></textarea>
+              </div>
+              <button type="submit" class="contact-submit">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+                <span>Send message</span>
+              </button>
+              <p class="contact-form-note">Sending opens your email app with the message ready to send to my inbox.</p>
+              <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+        </div>
       </article>
 
       <article class="project-details" data-page="project-details">
@@ -501,14 +476,28 @@
         </header>
 
         <div class="back-nav">
-            <button class="back-btn" onclick="closeProjectDetails()">
-              <ion-icon name="arrow-back"></ion-icon>
-              <span>Back to Portfolio</span>
-            </button>
+          <button type="button" class="back-btn" data-back-to="portfolio">
+            <ion-icon name="arrow-back"></ion-icon>
+            <span>Back to Portfolio</span>
+          </button>
         </div>
 
-        <section class="project-content" id="dynamic-project-content">
-            </section>
+        <section class="project-content" id="dynamic-project-content"></section>
+      </article>
+
+      <article class="certificate-details" data-page="certificate-details">
+        <header>
+          <h2 class="h2 article-title">Certificate Details</h2>
+        </header>
+
+        <div class="back-nav">
+          <button type="button" class="back-btn" data-back-to="certifications">
+            <ion-icon name="arrow-back"></ion-icon>
+            <span>Back to Certificates</span>
+          </button>
+        </div>
+
+        <section class="certificate-content" id="dynamic-certificate-content"></section>
       </article>
 
     </div>
